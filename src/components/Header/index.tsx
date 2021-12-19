@@ -1,4 +1,9 @@
-import { Flex, Input, Text } from '@chakra-ui/react';
+import { Avatar, Box, Flex, HStack, Icon, Input, Text } from '@chakra-ui/react';
+import {
+  RiNotificationLine,
+  RiSearchLine,
+  RiUserAddLine,
+} from 'react-icons/ri';
 
 // create Header component
 export function Header() {
@@ -23,7 +28,7 @@ export function Header() {
       <Flex
         as="label"
         flex="1"
-        py="4"
+        py="2"
         px="8"
         ml="6"
         maxW={400}
@@ -41,6 +46,37 @@ export function Header() {
           placeholder="Buscar na plataforma"
           _placeholder={{ color: 'gray.400' }}
         />
+        <Icon as={RiSearchLine} fontSize="20" />
+      </Flex>
+
+      <Flex align="center" ml="auto">
+        <HStack
+          spacing="8"
+          mx="8"
+          pr="8"
+          py="1"
+          color="gray.300"
+          borderRightWidth={1}
+          borderColor="gray.700"
+        >
+          <Icon as={RiNotificationLine} fontSize="20" />
+          <Icon as={RiUserAddLine} fontSize="20" />
+        </HStack>
+
+        <Flex align="center">
+          <Box mr="4" textAlign="center">
+            <Text>Tony Silva</Text>
+            <Text fontSize="sm" color="gray.300">
+              tony@mail.com
+            </Text>
+          </Box>
+
+          <Avatar
+            size="sm"
+            name="Tony Silva"
+            src="https://github.com/TonySilva7.png"
+          />
+        </Flex>
       </Flex>
     </Flex>
   );
