@@ -1,57 +1,27 @@
-import { Box, Icon, Link, Stack, Text } from '@chakra-ui/react';
+import { Box, Stack } from '@chakra-ui/react';
 import {
   RiContactsLine,
   RiDashboardLine,
   RiGitMergeLine,
   RiInputMethodLine,
 } from 'react-icons/ri';
+import { NavItem } from './NavItem';
+import { NavSection } from './NavSection';
 
 // create sidebar component
 export function Sidebar() {
   return (
     <Box as="aside" w="64" mr="8">
       <Stack spacing="12" align="flex-start">
-        <Box>
-          <Text fontWeight="bold" color="gray.400" fontSize="small">
-            GERAL
-          </Text>
-          <Stack spacing="4" mt="8" align="stretch">
-            <Link display="flex" align="center">
-              <Icon as={RiDashboardLine} fontSize="20" />
-              <Text ml="4" fontWeight="medium">
-                Dashboard
-              </Text>
-            </Link>
+        <NavSection title="GERAL">
+          <NavItem icon={RiDashboardLine}>Dashboard</NavItem>
+          <NavItem icon={RiContactsLine}>Usuários</NavItem>
+        </NavSection>
 
-            <Link display="flex" align="center">
-              <Icon as={RiContactsLine} fontSize="20" />
-              <Text ml="4" fontWeight="medium">
-                Usuários
-              </Text>
-            </Link>
-          </Stack>
-        </Box>
-
-        <Box>
-          <Text fontWeight="bold" color="gray.400" fontSize="small">
-            AUTOMAÇÃO
-          </Text>
-          <Stack spacing="4" mt="8" align="stretch">
-            <Link display="flex" align="center">
-              <Icon as={RiInputMethodLine} fontSize="20" />
-              <Text ml="4" fontWeight="medium">
-                Formulários
-              </Text>
-            </Link>
-
-            <Link display="flex" align="center">
-              <Icon as={RiGitMergeLine} fontSize="20" />
-              <Text ml="4" fontWeight="medium">
-                Automação
-              </Text>
-            </Link>
-          </Stack>
-        </Box>
+        <NavSection title="AUTOMAÇÃO">
+          <NavItem icon={RiInputMethodLine}>Formulários</NavItem>
+          <NavItem icon={RiGitMergeLine}>Automação</NavItem>
+        </NavSection>
       </Stack>
     </Box>
   );
