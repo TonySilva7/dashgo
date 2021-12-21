@@ -5,20 +5,28 @@ import {
   RiGitMergeLine,
   RiInputMethodLine,
 } from 'react-icons/ri';
-import { NavItem } from './NavItem';
+import { NavLink } from './NavLink';
 import { NavSection } from './NavSection';
 
 export function SidebarNav() {
   return (
     <Stack spacing="12" align="flex-start">
       <NavSection title="GERAL">
-        <NavItem icon={RiDashboardLine}>Dashboard</NavItem>
-        <NavItem icon={RiContactsLine}>Usuários</NavItem>
+        <NavLink href="/dashboard" icon={RiDashboardLine}>
+          Dashboard
+        </NavLink>
+        <NavLink href="/users" icon={RiContactsLine}>
+          Usuários
+        </NavLink>
       </NavSection>
 
       <NavSection title="AUTOMAÇÃO">
-        <NavItem icon={RiInputMethodLine}>Formulários</NavItem>
-        <NavItem icon={RiGitMergeLine}>Automação</NavItem>
+        <NavLink href="/forms" icon={RiInputMethodLine}>
+          Formulários
+        </NavLink>
+        <NavLink href="/automation" icon={RiGitMergeLine}>
+          Automação
+        </NavLink>
       </NavSection>
     </Stack>
   );
