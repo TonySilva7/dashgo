@@ -12,7 +12,7 @@ const SidebarDrawerContext = createContext({} as SidebarDrawerContextType);
 
 export function SidebarDrawerProvider({ children }: SidebarDrawerProviderProps) {
   const disclosure = useDisclosure(); // seta o estado do drawer
-  const router = useRouter(); // seta o estado do pathname
+  const router = useRouter(); // seta o estado do pathName
 
   // permite que o menu mobile feche ao clicar em qualquer lugar da tela
   useEffect(() => {

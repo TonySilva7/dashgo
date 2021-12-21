@@ -24,7 +24,7 @@ export function Header() {
           onClick={onOpen}
           aria-label="Abre navegação"
           mr="2"
-        ></IconButton>
+        />
       )}
       <Logo />
       {isWideVersion && <SearchBox />}
