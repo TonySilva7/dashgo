@@ -2,15 +2,26 @@ import { Button, Flex, Stack } from '@chakra-ui/react';
 import { Input } from '../components/Form/Input';
 // import InputMask from '../components/InputMask';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 type SignInFormData = {
   email: string;
   password: string;
 };
 
+const signInFormSchema = Yup.object().shape({
+  email: Yup.string().email('Insira um e-mail válido').required('O e-mail é obrigatório'),
+  password: Yup.string()
+    .min(6, 'A senha deve ter no mínimo 6 caracteres')
+    .required('A senha é obrigatória'),
+});
+
 export default function SignIn() {
   // const [card, setCard] = useState('');
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit, formState } = useForm({
+    resolver: yupResolver(signInFormSchema),
+  });
   const { errors } = formState;
   console.log(errors);
 
@@ -36,14 +47,14 @@ export default function SignIn() {
             name="email"
             label="Email"
             type="email"
-            {...register('email', { required: 'Email é obrigatório' })}
+            {...register('email')}
             error={errors.email}
           />
           <Input
             name="password"
             type="password"
             label="Senha"
-            {...register('password', { required: 'Senha é obrigatório' })}
+            {...register('password')}
             error={errors.password}
           />
           {/* <InputMask setCard={setCard} card={card} type="doc" /> */}
