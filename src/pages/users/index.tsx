@@ -26,6 +26,7 @@ import { useUsers } from '../../services/hooks/users/useUsers';
 export default function UserList() {
   const isWideVersion = useBreakpointValue({ base: false, lg: true });
 
+  // Destructure das propriedades do hook useQuery
   const { data, isLoading, isFetching, error } = useUsers();
 
   return (
@@ -119,7 +120,13 @@ export default function UserList() {
                 </Tbody>
               </Table>
 
-              <Pagination />
+              <Pagination
+                totalCountOfRegisters={200}
+                currentPage={5}
+                onChangePage={() => {
+                  ('');
+                }}
+              />
             </>
           )}
         </Box>

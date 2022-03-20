@@ -1,5 +1,3 @@
-// create PaginatioItem components with props
-
 import { Button } from '@chakra-ui/react';
 
 interface PaginationItemProps {
